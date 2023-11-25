@@ -26,6 +26,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@smastrom/react-rating", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:1.3.2"],\
           ["@types/react", "npm:18.2.38"],\
           ["@types/react-dom", "npm:18.2.17"],\
           ["@vitejs/plugin-react", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:4.2.0"],\
@@ -947,6 +948,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@smastrom/react-rating", [\
+      ["npm:1.3.2", {\
+        "packageLocation": "../../Users/Admin/AppData/Local/Yarn/Berry/cache/@smastrom-react-rating-npm-1.3.2-29bb47429e-10c0.zip/node_modules/@smastrom/react-rating/",\
+        "packageDependencies": [\
+          ["@smastrom/react-rating", "npm:1.3.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:1.3.2", {\
+        "packageLocation": "./.yarn/__virtual__/@smastrom-react-rating-virtual-38516c7891/3/Users/Admin/AppData/Local/Yarn/Berry/cache/@smastrom-react-rating-npm-1.3.2-29bb47429e-10c0.zip/node_modules/@smastrom/react-rating/",\
+        "packageDependencies": [\
+          ["@smastrom/react-rating", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:1.3.2"],\
+          ["@types/react", "npm:18.2.38"],\
+          ["@types/react-dom", "npm:18.2.17"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/babel__core", [\
       ["npm:7.20.5", {\
         "packageLocation": "../../Users/Admin/AppData/Local/Yarn/Berry/cache/@types-babel__core-npm-7.20.5-4d95f75eab-10c0.zip/node_modules/@types/babel__core/",\
@@ -1113,6 +1140,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["adroit-student-class-management", "workspace:."],\
+          ["@smastrom/react-rating", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:1.3.2"],\
           ["@types/react", "npm:18.2.38"],\
           ["@types/react-dom", "npm:18.2.17"],\
           ["@vitejs/plugin-react", "virtual:fa84ac84d4c8acf19c9921ad0e67f922c425c2f0fb89075a364174324e48f336886c2eb7f3f63131190b593915dd30f24e6f5461385547b401b8b8c2f86df799#npm:4.2.0"],\
