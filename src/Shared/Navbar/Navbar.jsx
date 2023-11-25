@@ -53,7 +53,14 @@ const Navbar = () => {
               <li>SIGN IN</li>
             </ul>
           </div>
-          <div className="logo">Adroit</div>
+          <div className="flex items-center">
+            <img
+              src="https://i.ibb.co/NVRb87c/download-image-1700889633138.png"
+              className="w-24"
+              alt=""
+            />
+            <p className="logo">Adroit</p>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className=" menu menu-horizontal px-1">
