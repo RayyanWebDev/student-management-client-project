@@ -7,10 +7,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Adroit-Student-Class-Management
-
 <h1>
-    <img src="./src/assets/download_image_1700889633138.png" alt="Adroit Logo" width="50" height="50" style="vertical-align: middle;">
+    <img src="./src/assets/download_image_1700889633138.png" alt="Adroit Logo" width="100" height="100" style="vertical-align: middle;">
     Adroit-Student-Class-Management
 </h1>
 ![Adroit Logo](./src/assets/download_image_1700889633138.png)
