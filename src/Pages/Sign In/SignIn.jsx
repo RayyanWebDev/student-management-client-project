@@ -3,30 +3,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 const SignIn = () => {
-  // const handleSignIn = (e) => {
-  //     e.preventDefault();
-  //     const email = e.target.email.value;
-  //     const password = e.target.password.value;
-  //     console.log(email, password);
-  //     signInUser(email, password)
-  //       .then((result) => {
-  //         console.log(result);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
-  // const { signInUser, signInWithGoogle } = useContext(AuthContext);
-  // const hangleGoogle = () => {
-  //     signInWithGoogle()
-  //       .then((result) => {
-  //         console.log(result.user);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
-
   const { signIn } = useContext(AuthContext);
   const handleSignIn = (e) => {
     e.preventDefault();

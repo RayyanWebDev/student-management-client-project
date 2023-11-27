@@ -44,9 +44,7 @@ const Navbar = () => {
             <ul className="hover-color-change   menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li className="justify-between ml-3">{user?.displayName}</li>
               <li>
-                <Link to="/dashBoard">
-                  <a>DashBoard</a>
-                </Link>
+                <Link to="/dashboard">DashBoard</Link>
               </li>
               <li>
                 <button onClick={handleLogOut}>Sign out</button>
@@ -75,7 +73,7 @@ const Navbar = () => {
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="red"
               >
                 <path
                   strokeLinecap="round"
@@ -87,14 +85,62 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-red-700 rounded-box w-52"
             >
-              <li>HOME</li>
+              <li>
+                <Link to="/">HOME</Link>
+              </li>
 
-              <li>All Classes</li>
-              <li>Teach On</li>
+              <li>
+                <Link to="/allClasses">All Classes</Link>
+              </li>
+              <li>
+                <Link to="/teachOn">
+                  Teach On <span className="logo1">Adroit</span>{" "}
+                </Link>
+              </li>
 
-              <li>SIGN IN</li>
+              <li>
+                {" "}
+                <Link to="/signIn">SIGN IN</Link>{" "}
+              </li>
+              {user ? (
+                <>
+                  <div className="dropdown dropdown-end text-gray-600">
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="btn btn-ghost btn-circle avatar text-gray-600"
+                    >
+                      <div className="w-10 rounded-full">
+                        <img
+                          alt="Tailwind CSS Navbar component"
+                          src={user?.photoURL}
+                        />
+                        {/* <img src={user?.photoURL} alt="" /> */}
+                      </div>
+                    </div>
+                    <ul className="hover-color-change   menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                      <li className="justify-between ml-3">
+                        {user?.displayName}
+                      </li>
+                      <li>
+                        <Link to="/dashboard">DashBoard</Link>
+                      </li>
+                      <li>
+                        <button onClick={handleLogOut}>Sign out</button>
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <li>
+                    {" "}
+                    <Link to="/signIn">SIGN IN</Link>{" "}
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div className="flex items-center">
@@ -111,36 +157,6 @@ const Navbar = () => {
             <li className="font-extrabold text-white">{NavLink}</li>
           </ul>
         </div>
-        {/*  */}
-
-        {/* <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
-            
-            </div>
-          </div>
-          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div> */}
-
-        {/*  */}
       </div>
     </div>
   );

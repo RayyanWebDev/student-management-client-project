@@ -8,7 +8,10 @@ import SignUp from "../Pages/SignUp/SignUp";
 
 import PrivateRoute from "./Routes/PrivateRoute";
 import Confidential from "../Pages/Confidential/Confidential";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import Dashboard from "../Main/Dashboard";
+import MyEnrollClass from "../Pages/My Enroll Class/MyEnrollClass";
+import StudentProfile from "../Pages/Profile/StudentProfile";
+// import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -35,10 +38,10 @@ export const router = createBrowserRouter([
         path: "SignUp",
         element: <SignUp></SignUp>,
       },
-      {
-        path: "dashBoard",
-        element: <Dashboard></Dashboard>,
-      },
+      // {
+      //   path: "dashBoard",
+      //   element: <Dashboard></Dashboard>,
+      // },
       {
         path: "confidential",
         element: (
@@ -47,6 +50,20 @@ export const router = createBrowserRouter([
             <Confidential></Confidential>{" "}
           </PrivateRoute>
         ),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "myEnrollClass",
+        element: <MyEnrollClass></MyEnrollClass>,
+      },
+      {
+        path: "studentProfile",
+        element: <StudentProfile></StudentProfile>,
       },
     ],
   },
