@@ -8,6 +8,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 
 import PrivateRoute from "./Routes/PrivateRoute";
 import Confidential from "../Pages/Confidential/Confidential";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
+        path: "dashBoard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
         path: "confidential",
         element: (
           <PrivateRoute>
@@ -46,3 +51,4 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+// sffsdfsdfsfds

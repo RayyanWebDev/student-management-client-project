@@ -2,22 +2,46 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-
+import Swal from "sweetalert2";
 const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
 
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      updateUserProfile(data.name, data.PhotoURL)
+        .then(() => {
+          console.log("user profile information");
+          reset();
+          Swal.fire({
+            title: "Custom animation with Animate.css",
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `,
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `,
+            },
+          });
+        })
+        .catch((error) => console.log(error));
     });
   };
 
@@ -50,6 +74,22 @@ const SignUp = () => {
                   <span className="text-red-500">Name is required</span>
                 )}
               </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">PhotoURL</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="PhotoURL"
+                  {...register("PhotoURL", { required: true })}
+                  className="input input-bordered"
+                />
+                {errors.PhotoURL && (
+                  <span className="text-red-500">PhotoURL is required</span>
+                )}
+              </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

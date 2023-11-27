@@ -30,9 +30,29 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <button onClick={handleLogOut} className="btn btn-active btn-neutral">
-            Sign out
-          </button>
+          <div className="dropdown dropdown-end text-gray-600">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar text-gray-600"
+            >
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                {/* <img src={user?.photoURL} alt="" /> */}
+              </div>
+            </div>
+            <ul className="hover-color-change   menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li className="justify-between ml-3">{user?.displayName}</li>
+              <li>
+                <Link to="/dashBoard">
+                  <a>DashBoard</a>
+                </Link>
+              </li>
+              <li>
+                <button onClick={handleLogOut}>Sign out</button>
+              </li>
+            </ul>
+          </div>
         </>
       ) : (
         <>
@@ -91,6 +111,36 @@ const Navbar = () => {
             <li className="font-extrabold text-white">{NavLink}</li>
           </ul>
         </div>
+        {/*  */}
+
+        {/* <div className="dropdown dropdown-end">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+            
+            </div>
+          </div>
+          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <a className="justify-between">
+                Profile
+                <span className="badge">New</span>
+              </a>
+            </li>
+            <li>
+              <a>Settings</a>
+            </li>
+            <li>
+              <a>Logout</a>
+            </li>
+          </ul>
+        </div> */}
+
+        {/*  */}
       </div>
     </div>
   );

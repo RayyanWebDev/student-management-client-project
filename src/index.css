@@ -51,3 +51,12 @@
     transform: translate3d(-50%, 0, 0);
   }
 }
+/* Profile */
+.hover-color-change {
+  color: gray; /* Initial text color */
+  transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.hover-color-change:hover {
+  color: #2b2727; /* Text color on hover */
+}
