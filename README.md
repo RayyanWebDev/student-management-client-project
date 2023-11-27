@@ -8,8 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 <h1 style="display: flex; align-items: center;">
-    Adroit-Student-Class-Management
-    <img src="./src/assets/download_image_1700889633138.png" alt="Adroit Logo" width="100" height="100" style="margin-left: 10px;">
+    Adroit-Student-Class-Management<img src="./src/assets/download_image_1700889633138.png" alt="Adroit Logo" width="100" height="100" style="margin-left: 10px;">
 </h1>
 
 Welcome to our Online Learning Platform! This repository houses a comprehensive online learning management system designed to cater to students, teachers, and administrators.
