@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import GoogleLogin from "../../Components/Social Login/GoogleLogin";
 const SignIn = () => {
   const { signIn } = useContext(AuthContext);
   const handleSignIn = (e) => {
@@ -83,6 +84,10 @@ const SignIn = () => {
                 <span className="text-white">Now</span>
               </Link>
             </p>
+
+            <div>
+              <GoogleLogin></GoogleLogin>
+            </div>
           </form>
         </div>
       </div>

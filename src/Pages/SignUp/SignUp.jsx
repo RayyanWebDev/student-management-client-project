@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import GoogleLogin from "../../Components/Social Login/GoogleLogin";
 const SignUp = () => {
+  const axiosPublic = UseAxiosPublic();
+
   const {
     register,
     handleSubmit,
@@ -16,29 +20,43 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.PhotoURL)
         .then(() => {
           console.log("user profile information");
-          reset();
-          Swal.fire({
-            title: "Custom animation with Animate.css",
-            showClass: {
-              popup: `
-                animate__animated
-                animate__fadeInUp
-                animate__faster
-              `,
-            },
-            hideClass: {
-              popup: `
-                animate__animated
-                animate__fadeOutDown
-                animate__faster
-              `,
-            },
+          //   create user entry database
+
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            PhotoURL: data.PhotoURL,
+          };
+
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("user added to the database");
+              reset();
+              Swal.fire({
+                title: "Custom animation with Animate.css",
+                showClass: {
+                  popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+                },
+                hideClass: {
+                  popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+                },
+              });
+            }
           });
         })
         .catch((error) => console.log(error));
@@ -136,6 +154,7 @@ const SignUp = () => {
                   <button className="sign">Sign In</button>
                 </Link>
               </p>
+              <GoogleLogin></GoogleLogin>
             </form>
           </div>
         </div>
