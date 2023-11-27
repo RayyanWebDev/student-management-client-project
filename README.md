@@ -17,7 +17,7 @@ Welcome to our Online Learning Platform! This repository houses a comprehensive 
 2. [Homepage](#homepage)
 3. [All Classes](#all-classes)
 4. [Class Details Page](#class-details-page)
-5. [Teach on [Your Website]](#teach-on-your-website)
+5. [Teach on [Adroit]](#teach-on-Adroit)
 6. [Student Dashboard](#student-dashboard)
 7. [Admin Dashboard](#admin-dashboard)
 8. [Teacher Dashboard](#teacher-dashboard)
@@ -25,7 +25,7 @@ Welcome to our Online Learning Platform! This repository houses a comprehensive 
 
 ## Navbar
 
-The navbar contains essential navigation links like Home, All Classes, Teach on [Your Website], and Sign In. For logged-in users, it displays the profile picture. Clicking the profile picture reveals options like User Name, Dashboard, and Logout.
+The navbar contains essential navigation links like Home, All Classes, Teach on Adroit, and Sign In. For logged-in users, it displays the profile picture. Clicking the profile picture reveals options like User Name, Dashboard, and Logout.
 
 ## Homepage
 
@@ -39,7 +39,7 @@ Displays classes approved by the admin in a card format with title, instructor n
 
 Clicking 'Enroll' redirects to the class details page displaying class information and a 'Pay' button. After payment, the user is redirected to the dashboard's 'My Enrolled Classes' page.
 
-## Teach on [Your Website]
+## Teach on Adroit
 
 Allows users to apply as teachers, providing necessary details. Upon submission, admin reviews the request, either approving or rejecting it.
 
@@ -63,6 +63,6 @@ For a detailed guide on each feature's implementation, setup instructions, depen
 
 ## Contact Information
 
-For inquiries or support, feel free to contact us at [Email](mailto:email@example.com) or visit our website [Your Website].
+For inquiries or support, feel free to contact us at [Email](mailto:Adroit@example.com) or visit our website [Adroit].
 
 Thank you for using our Online Learning Platform!
