@@ -9,6 +9,8 @@ Currently, two official plugins are available:
 
 # Adroit-Student-Class-Management
 
+![Adroit Logo](./src/assets/download_image_1700889633138.png)
+
 Welcome to our Online Learning Platform! This repository houses a comprehensive online learning management system designed to cater to students, teachers, and administrators.
 
 ## Table of Contents
