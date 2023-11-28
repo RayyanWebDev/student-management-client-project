@@ -6,8 +6,8 @@ import TeachOn from "../Pages/Teach On/TeachOn";
 import SignIn from "../Pages/Sign In/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 
-import PrivateRoute from "./Routes/PrivateRoute";
-import Confidential from "../Pages/Confidential/Confidential";
+// import PrivateRoute from "./Routes/PrivateRoute";
+// import Confidential from "../Pages/Confidential/Confidential";
 import Dashboard from "../Main/Dashboard";
 import MyEnrollClass from "../Pages/My Enroll Class/MyEnrollClass";
 import StudentProfile from "../Pages/Profile/StudentProfile";
@@ -15,6 +15,7 @@ import TeacherRequest from "../Pages/Admin Dashboard Route/TeacherRequest";
 import UserAdmin from "../Pages/Admin Dashboard Route/UserAdmin";
 import AllClassess from "../Pages/Admin Dashboard Route/AllClassess";
 import AdminProfile from "../Pages/Admin Dashboard Route/AdminProfile";
+import PrivateRoute from "./Routes/PrivateRoute";
 // import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
@@ -32,7 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "teachOn",
-        element: <TeachOn></TeachOn>,
+        element: (
+          <PrivateRoute>
+            <TeachOn></TeachOn>
+          </PrivateRoute>
+        ),
       },
       {
         path: "signIn",
@@ -46,15 +51,15 @@ export const router = createBrowserRouter([
       //   path: "dashBoard",
       //   element: <Dashboard></Dashboard>,
       // },
-      {
-        path: "confidential",
-        element: (
-          <PrivateRoute>
-            {" "}
-            <Confidential></Confidential>{" "}
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "confidential",
+      //   element: (
+      //     <PrivateRoute>
+      //       {" "}
+      //       <Confidential></Confidential>{" "}
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
   {

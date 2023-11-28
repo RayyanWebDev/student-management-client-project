@@ -1,36 +1,42 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import UseAdmin from "../Hooks/UseAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = UseAdmin();
+  // const [isTeacher] = true;
   return (
     <div className="flex">
       <div className="w-64 min-h-full bg-orange-400">
         <ul>
           {isAdmin ? (
+            // Admin navigation links
             <>
               <li>
                 <NavLink to="/dashboard/teacherRequest">
                   Teacher Request
-                </NavLink>{" "}
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/userss">Users</NavLink>{" "}
+                <NavLink to="/dashboard/userss">Users</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/allClassess">All Classes</NavLink>{" "}
+                <NavLink to="/dashboard/allClassess">All Classes</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/adminProfile">Profile</NavLink>{" "}
+                <NavLink to="/dashboard/adminProfile">Profile</NavLink>
               </li>
             </>
           ) : (
+            // Default student navigation links
             <>
               <li>
-                <NavLink to="/dashboard/myEnrollClass">My enroll class</NavLink>{" "}
+                <NavLink to="/dashboard/myEnrollClass">
+                  My Enrolled Classes
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/studentProfile">Profile</NavLink>{" "}
+                <NavLink to="/dashboard/studentProfile">Profile</NavLink>
               </li>
             </>
           )}
@@ -44,3 +50,16 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+// isTeacher ? (
+//   // Teacher navigation links
+//   <>
+//     <li>
+//       <NavLink to="/dashboard/myEnrollClass">
+//         My Enrolled Classes
+//       </NavLink>
+//     </li>
+//     <li>
+//       <NavLink to="/dashboard/teacherProfile">Profile</NavLink>
+//     </li>
+//   </>
+// ) :

@@ -1,17 +1,36 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
-import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+// import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import Swal from "sweetalert2";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const UserAdmin = () => {
-  const axiosSecure = UseAxiosPublic();
-  const { data: users = [] } = useQuery({
+  const axiosSecure = UseAxiosSecure();
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
+
+  const handleMakeAdmin = (user) => {
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${user.name} is an Admin`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+
   return (
     <div>
       {/* <div>UserAdmin: {users.length}</div> */}
@@ -48,7 +67,16 @@ const UserAdmin = () => {
                 <td> {user.email} </td>
 
                 <th>
-                  <button className="btn btn-ghost btn-xs">Make Admin</button>
+                  {user.role === "admin" ? (
+                    "Admin"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeAdmin(user)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      Make Admin
+                    </button>
+                  )}
                 </th>
               </tr>
             ))}
