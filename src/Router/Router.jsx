@@ -16,6 +16,9 @@ import UserAdmin from "../Pages/Admin Dashboard Route/UserAdmin";
 import AllClassess from "../Pages/Admin Dashboard Route/AllClassess";
 import AdminProfile from "../Pages/Admin Dashboard Route/AdminProfile";
 import PrivateRoute from "./Routes/PrivateRoute";
+import AddClass from "../Pages/Teacher Dashbord Route/AddClass";
+import MyClass from "../Pages/Teacher Dashbord Route/MyClass";
+import TeacherProfile from "../Pages/Teacher Dashbord Route/TeacherProfile";
 // import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
@@ -89,6 +92,18 @@ export const router = createBrowserRouter([
       {
         path: "adminProfile",
         element: <AdminProfile></AdminProfile>,
+      },
+      {
+        path: "addClassTeacher",
+        element: <AddClass></AddClass>,
+      },
+      {
+        path: "myClassTeacher",
+        element: <MyClass></MyClass>,
+      },
+      {
+        path: "teacherProfile",
+        element: <TeacherProfile></TeacherProfile>,
       },
     ],
   },

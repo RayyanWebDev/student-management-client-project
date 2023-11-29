@@ -7,9 +7,13 @@ import useTeacherInfo from "../../Hooks/useTeacherInfo";
 
 const TeachOn = () => {
   const [teacherInfo, refetch] = useTeacherInfo();
+
   const axiosPublic = UseAxiosPublic();
+
   const { user } = UseAuth();
+
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
     if (user && user.email) {
       // console.log(data, user.email, user.photoURL);

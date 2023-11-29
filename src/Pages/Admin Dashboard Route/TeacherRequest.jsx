@@ -16,6 +16,7 @@ const TeacherRequest = () => {
       return res.data;
     },
   });
+
   const handleRejectTeacher = (id) => {
     Swal.fire({
       title: "Are you sure?",

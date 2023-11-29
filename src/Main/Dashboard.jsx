@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../Hooks/UseAdmin";
+import UseTeacher from "../Hooks/UseTeacher";
 
 const Dashboard = () => {
   const [isAdmin] = UseAdmin();
-  // const [isTeacher] = true;
+  const [isTeacher] = UseTeacher();
   return (
     <div className="flex">
       <div className="w-64 min-h-full bg-orange-400">
@@ -25,6 +26,19 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/adminProfile">Profile</NavLink>
+              </li>
+            </>
+          ) : isTeacher ? (
+            // Teacher navigation links
+            <>
+              <li>
+                <NavLink to="/dashboard/addClassTeacher">Add Class</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/myClassTeacher">My Class</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/teacherProfile">Profile</NavLink>
               </li>
             </>
           ) : (
@@ -50,16 +64,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-// isTeacher ? (
-//   // Teacher navigation links
-//   <>
-//     <li>
-//       <NavLink to="/dashboard/myEnrollClass">
-//         My Enrolled Classes
-//       </NavLink>
-//     </li>
-//     <li>
-//       <NavLink to="/dashboard/teacherProfile">Profile</NavLink>
-//     </li>
-//   </>
-// ) :
