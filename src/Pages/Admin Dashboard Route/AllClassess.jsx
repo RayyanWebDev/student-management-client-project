@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import UseAuth from "../../Hooks/UseAuth";
 
 const AllClassess = () => {
   const axiosSecure = UseAxiosSecure();
-
+  // const axiosPublic = UseAxiosPublic();
+  const { user } = UseAuth();
   const handleRejectClass = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -44,6 +46,24 @@ const AllClassess = () => {
         });
       }
     });
+    // raidssss@gmail.com
+    // fsdfsfsadffsd
+    if (user && user.email) {
+      console.log(user.email, classesInfo);
+      const homeClassInfo = {
+        email: classesInfo.email,
+        displayName: classesInfo.displayName,
+
+        photoURL: classesInfo.photoURL,
+        image: classesInfo.image,
+        title: classesInfo.title,
+        description: classesInfo.description,
+        price: classesInfo.price,
+      };
+      axiosSecure.post("/hClassInfo", homeClassInfo).then((res) => {
+        console.log(res.data);
+      });
+    }
   };
 
   const { data: classesInfos = [], refetch } = useQuery({

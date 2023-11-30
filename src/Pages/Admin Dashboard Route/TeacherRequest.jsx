@@ -3,10 +3,8 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
-// gdasgdgfdg
-// kimkim@gmail.com
+
 const TeacherRequest = () => {
-  // const [teacherInfo] = useTeacherInfo();
   const axiosSecure = UseAxiosSecure();
 
   const { data: teacherInfos = [], refetch } = useQuery({

@@ -1,30 +1,28 @@
-import React from "react";
 import { useForm } from "react-hook-form";
+import UseAssignmentStudent from "../../Hooks/UseAssignmentStudent";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 
-const AddClass = () => {
+const Details = () => {
+  const [myAssignment] = UseAssignmentStudent();
   const { register, handleSubmit } = useForm();
-
-  const axiosPublic = UseAxiosPublic();
-
   const { user } = UseAuth();
+  const axiosPublic = UseAxiosPublic();
 
   const onSubmit = (data) => {
     console.log(data);
-    const classInfo = {
+    const ratingInfo = {
       email: user.email,
       displayName: user.displayName,
-      image: data.image,
+
       photoURL: user.photoURL,
-      title: data.title,
+
       description: data.description,
-      price: data.price,
+      rating: data.rating,
     };
 
-    axiosPublic.post("/classInfo", classInfo).then((res) => {
+    axiosPublic.post("/feedPayment", ratingInfo).then((res) => {
       if (res.data.insertedId) {
         console.log("user added to the database");
         // reset();
@@ -51,6 +49,23 @@ const AddClass = () => {
     });
   };
 
+  const handleAssignment = (assigned) => {
+    if (user && user.email) {
+      console.log(user.email, assigned);
+      const assignmentPost = {
+        email: user.email,
+        displayName: assigned.displayName,
+
+        title: assigned.title,
+        description: assigned.description,
+        deadline: assigned.deadline,
+      };
+      axiosPublic.post("/assignmentPost", assignmentPost).then((res) => {
+        console.log(res.data);
+      });
+    }
+  };
+
   return (
     <div>
       <div>
@@ -70,39 +85,6 @@ const AddClass = () => {
         className="text-center justify-center items-center content-center mx-auto"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="form-control w-full max-w-xs text-center justify-center items-center content-center mx-auto">
-          <label className="label">
-            <span className="label-text">Title</span>
-          </label>
-          <input
-            {...register("title", { required: true })}
-            type="text"
-            placeholder="Title"
-            className="input input-bordered w-full max-w-xs"
-          />
-        </div>
-        <div className="form-control w-full max-w-xs text-center justify-center items-center content-center mx-auto">
-          <label className="label">
-            <span className="label-text">Image</span>
-          </label>
-          <input
-            {...register("image", { required: true })}
-            type="text"
-            placeholder="Image"
-            className="input input-bordered w-full max-w-xs"
-          />
-        </div>
-        <div className="form-control w-full max-w-xs text-center justify-center items-center content-center mx-auto">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
-          <input
-            {...register("price", { required: true })}
-            type="price"
-            placeholder="$Price"
-            className="input input-bordered w-full max-w-xs"
-          />
-        </div>
         <div className="form-control w-full max-w-xs text-center justify-center items-center content-center mx-auto mb-5">
           <label className="label">
             <span className="label-text">Description</span>
@@ -114,13 +96,44 @@ const AddClass = () => {
             className="input input-bordered w-full max-w-xs"
           />
         </div>
+        <div className="form-control w-full max-w-xs text-center justify-center items-center content-center mx-auto mb-5">
+          <label className="label">
+            <span className="label-text">Rating</span>
+          </label>
+          <input
+            {...register("rating", { required: true })}
+            type="text"
+            placeholder="rating"
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
         {/* <input type="submit" /> */}{" "}
         <button type="submit" className="btn btn-neutral">
           Add Class
         </button>
       </form>
+      {myAssignment.map((myAssignments) => (
+        <div
+          key={myAssignments._id}
+          className="card w-96 bg-base-100 shadow-xl "
+        >
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">{myAssignments.title}</h2>
+            <p>{myAssignments.description}</p>
+            <p>{myAssignments.deadline}</p>
+            <div className="card-actions">
+              <button
+                onClick={() => handleAssignment(myAssignment)}
+                className="btn btn-primary"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default AddClass;
+export default Details;

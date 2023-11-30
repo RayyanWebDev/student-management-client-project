@@ -19,6 +19,12 @@ import PrivateRoute from "./Routes/PrivateRoute";
 import AddClass from "../Pages/Teacher Dashbord Route/AddClass";
 import MyClass from "../Pages/Teacher Dashbord Route/MyClass";
 import TeacherProfile from "../Pages/Teacher Dashbord Route/TeacherProfile";
+import ClassDetails from "../Pages/All Classes/ClassDetails";
+import Payment from "../Pages/All Classes/Payment";
+import Details from "../Pages/My Enroll Class/Details";
+import UpdateMyClass from "../Pages/Teacher Dashbord Route/Update Class/UpdateMyClass";
+import DetailsAssignment from "../Pages/Teacher Dashbord Route/Update Class/DetailsAssignment";
+
 // import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
@@ -33,6 +39,34 @@ export const router = createBrowserRouter([
       {
         path: "allClasses",
         element: <AllClasses></AllClasses>,
+      },
+      {
+        path: "continue",
+        element: <Details></Details>,
+      },
+      {
+        path: "detailAssignment",
+        element: <DetailsAssignment></DetailsAssignment>,
+      },
+      {
+        path: "continueDetails",
+        element: <ClassDetails></ClassDetails>,
+      },
+      {
+        path: "classDetails",
+        element: <ClassDetails></ClassDetails>,
+      },
+      {
+        path: "updateClass",
+        element: <UpdateMyClass></UpdateMyClass>,
+        loader: ({ params }) =>
+          fetch(
+            `https://y-phi-blue.vercel.app/dashboard/myClassTeacher/${params.id}`
+          ),
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
       {
         path: "teachOn",
@@ -50,19 +84,6 @@ export const router = createBrowserRouter([
         path: "SignUp",
         element: <SignUp></SignUp>,
       },
-      // {
-      //   path: "dashBoard",
-      //   element: <Dashboard></Dashboard>,
-      // },
-      // {
-      //   path: "confidential",
-      //   element: (
-      //     <PrivateRoute>
-      //       {" "}
-      //       <Confidential></Confidential>{" "}
-      //     </PrivateRoute>
-      //   ),
-      // },
     ],
   },
   {
@@ -73,6 +94,7 @@ export const router = createBrowserRouter([
         path: "myEnrollClass",
         element: <MyEnrollClass></MyEnrollClass>,
       },
+
       {
         path: "studentProfile",
         element: <StudentProfile></StudentProfile>,

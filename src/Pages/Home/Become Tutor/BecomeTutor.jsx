@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BecomeTutor = () => {
   return (
@@ -17,7 +18,9 @@ const BecomeTutor = () => {
           impart knowledge, and facilitate learning in a flexible, virtual
           educational environment.
         </p>
-        <button className="btn btn-neutral">Start Teaching Today</button>
+        <Link to="teachOn">
+          <button className="btn btn-neutral">Start Teaching Today</button>
+        </Link>
       </div>
     </div>
   );

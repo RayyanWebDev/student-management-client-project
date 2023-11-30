@@ -7,8 +7,8 @@ const Dashboard = () => {
   const [isAdmin] = UseAdmin();
   const [isTeacher] = UseTeacher();
   return (
-    <div className="flex">
-      <div className="w-64 min-h-full bg-orange-400">
+    <div className="">
+      <div className="">
         <ul>
           {isAdmin ? (
             // Admin navigation links
@@ -35,7 +35,9 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/addClassTeacher">Add Class</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/myClassTeacher">My Class</NavLink>
+                <NavLink className="" to="/dashboard/myClassTeacher">
+                  My Class
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/teacherProfile">Profile</NavLink>
@@ -56,7 +58,7 @@ const Dashboard = () => {
           )}
         </ul>
       </div>
-      <div className="flex-1">
+      <div className="">
         <Outlet></Outlet>
       </div>
     </div>
