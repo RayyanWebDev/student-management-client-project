@@ -25,6 +25,10 @@ Welcome to our Online Learning Platform! This repository houses a comprehensive 
 8. [Teacher Dashboard](#teacher-dashboard)
 9. [Login & Registration Systems](#login--registration-systems)
 
+## Live Site Link:
+https://adroit-student-management.web.app/
+
+
 ## Navbar
 
 The navbar contains essential navigation links like Home, All Classes, Teach on Adroit, and Sign In. For logged-in users, it displays the profile picture. Clicking the profile picture reveals options like User Name, Dashboard, and Logout.
